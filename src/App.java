@@ -82,25 +82,25 @@ public class App extends JFrame {
         c.gridy =0;
         c.gridwidth = 1; //dos columnas de ancho
         c.gridheight =1; //dos filas de alto
-        c.insets = new Insets(0, 30, 0, 0); // Espacio de 10 píxeles a la izquierda
+        c.insets = new Insets(0, 30, 0, 30); // Espacio de 10 píxeles a la izquierda
         westPanel.add(westFizzLabel, c);
         c.gridx =0;
         c.gridy =1;
         c.gridwidth = 1; //dos columnas de ancho
         c.gridheight =1; //dos filas de alto
-        c.insets = new Insets(0, 30, 0, 0); // Espacio de 10 píxeles a la izquierda
+        c.insets = new Insets(0, 30, 0, 30); // Espacio de 10 píxeles a la izquierda
         westPanel.add(westBuzzLabel, c);
         c.gridx =0;
         c.gridy =2;
         c.gridwidth = 1; //dos columnas de ancho
         c.gridheight =1; //dos filas de alto
-        c.insets = new Insets(0, 30, 0, 0); // Espacio de 10 píxeles a la izquierda
+        c.insets = new Insets(0, 30, 0, 30); // Espacio de 10 píxeles a la izquierda
         westPanel.add(westFizzBuzzLabel, c);
         c.gridx =0;
         c.gridy =3;
         c.gridwidth = 1; //dos columnas de ancho
         c.gridheight =1; //dos filas de alto
-        c.insets = new Insets(0, 30, 0, 0); // Espacio de 10 píxeles a la izquierda
+        c.insets = new Insets(0, 30, 0, 30); // Espacio de 10 píxeles a la izquierda
         westPanel.add(westNoneLabel, c);
 
         // Configuración de fuente
@@ -132,48 +132,76 @@ public class App extends JFrame {
         c.gridy = 0;
         c.gridheight=1;
         c.gridwidth =1;
+        c.weightx = 1.0; // expandir en dirección x
+        c.weighty = 1.0; // expandir en dirección y
+        c.fill = GridBagConstraints.BOTH; // expandir en ambas direcciones
         centerPanel.add(centerFizzLabel, c);
 
         c.gridx = 0;
         c.gridy = 2;
         c.gridheight=3;
         c.gridwidth =1;
+        c.weightx = 1.0; // expandir en dirección x
+        c.weighty = 3.0; // expandir en dirección y
+        c.fill = GridBagConstraints.BOTH; // expandir en ambas direcciones
+        c.insets = new Insets(0, 0, 30, 30); // Espacio de 10 píxeles a la derecha
         centerPanel.add(fizzScrollPane, c);
 
         c.gridx = 1;
         c.gridy = 0;
         c.gridheight=1;
         c.gridwidth =1;
+        c.weightx = 1.0; // expandir en dirección x
+        c.weighty = 1.0; // expandir en dirección y
+        c.fill = GridBagConstraints.BOTH; // expandir en ambas direcciones
         centerPanel.add(centerBuzzLabel, c);
 
         c.gridx = 1;
         c.gridy = 2;
         c.gridheight=3;
         c.gridwidth =1;
+        c.weightx = 1.0; // expandir en dirección x
+        c.weighty = 3.0; // expandir en dirección y
+        c.fill = GridBagConstraints.BOTH; // expandir en ambas direcciones
+        c.insets = new Insets(0, 0, 30, 30); // Espacio de 10 píxeles a la derecha
         centerPanel.add(buzzScrollPane, c);
 
         c.gridx = 2;
         c.gridy = 0;
         c.gridheight=1;
         c.gridwidth =1;
+        c.weightx = 1.0; // expandir en dirección x
+        c.weighty = 1.0; // expandir en dirección y
+        c.fill = GridBagConstraints.BOTH; // expandir en ambas direcciones
         centerPanel.add(centerFizzBuzzLabel, c);
 
         c.gridx = 2;
         c.gridy = 2;
         c.gridheight=3;
         c.gridwidth =1;
+        c.weightx = 1.0; // expandir en dirección x
+        c.weighty = 3.0; // expandir en dirección y
+        c.fill = GridBagConstraints.BOTH; // expandir en ambas direcciones
+        c.insets = new Insets(0, 0, 30, 30); // Espacio de 10 píxeles a la derecha
         centerPanel.add(fizzBuzzScrollPane, c);
 
         c.gridx = 3;
         c.gridy = 0;
         c.gridheight=1;
-        c.gridwidth =1;
+        c.gridwidth =1; c.weightx = 1.0; // expandir en dirección x
+        c.weighty = 1.0; // expandir en dirección y
+        c.fill = GridBagConstraints.BOTH; // expandir en ambas direcciones
+
         centerPanel.add(centerNoneLabel, c);
 
         c.gridx = 3;
         c.gridy = 2;
         c.gridheight=3;
         c.gridwidth =1;
+        c.weightx = 1.0; // expandir en dirección x
+        c.weighty = 3.0; // expandir en dirección y
+        c.fill = GridBagConstraints.BOTH; // expandir en ambas direcciones
+        c.insets = new Insets(0, 0, 30, 30); // Espacio de 10 píxeles a la derecha
         centerPanel.add(noneScrollPane, c);
 
         this.add(centerPanel, BorderLayout.CENTER);
