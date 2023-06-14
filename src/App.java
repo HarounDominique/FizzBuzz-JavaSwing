@@ -110,6 +110,74 @@ public class App extends JFrame {
         westFizzBuzzLabel.setFont(westFont);
         westNoneLabel.setFont(westFont);
 
+        /**CENTER PANEL**/
+        JPanel centerPanel = new JPanel();
+        centerPanel.setLayout(new GridBagLayout());
+
+        JLabel centerFizzLabel = new JLabel("Fizz");
+        JLabel centerBuzzLabel = new JLabel("Buzz");
+        JLabel centerFizzBuzzLabel = new JLabel("FizzBuzz");
+        JLabel centerNoneLabel = new JLabel("None");
+
+        JList<Integer> centerFizzList = new JList<>();
+        JScrollPane fizzScrollPane = new JScrollPane(centerFizzList);
+        JList<Integer> centerBuzzList = new JList<>();
+        JScrollPane buzzScrollPane = new JScrollPane(centerBuzzList);
+        JList<Integer> centerFizzBuzzList = new JList<>();
+        JScrollPane fizzBuzzScrollPane = new JScrollPane(centerFizzBuzzList);
+        JList<Integer> centerNoneList = new JList<>();
+        JScrollPane noneScrollPane = new JScrollPane(centerNoneList);
+
+        c.gridx = 0;
+        c.gridy = 0;
+        c.gridheight=1;
+        c.gridwidth =1;
+        centerPanel.add(centerFizzLabel, c);
+
+        c.gridx = 0;
+        c.gridy = 2;
+        c.gridheight=3;
+        c.gridwidth =1;
+        centerPanel.add(fizzScrollPane, c);
+
+        c.gridx = 1;
+        c.gridy = 0;
+        c.gridheight=1;
+        c.gridwidth =1;
+        centerPanel.add(centerBuzzLabel, c);
+
+        c.gridx = 1;
+        c.gridy = 2;
+        c.gridheight=3;
+        c.gridwidth =1;
+        centerPanel.add(buzzScrollPane, c);
+
+        c.gridx = 2;
+        c.gridy = 0;
+        c.gridheight=1;
+        c.gridwidth =1;
+        centerPanel.add(centerFizzBuzzLabel, c);
+
+        c.gridx = 2;
+        c.gridy = 2;
+        c.gridheight=3;
+        c.gridwidth =1;
+        centerPanel.add(fizzBuzzScrollPane, c);
+
+        c.gridx = 3;
+        c.gridy = 0;
+        c.gridheight=1;
+        c.gridwidth =1;
+        centerPanel.add(centerNoneLabel, c);
+
+        c.gridx = 3;
+        c.gridy = 2;
+        c.gridheight=3;
+        c.gridwidth =1;
+        centerPanel.add(noneScrollPane, c);
+
+        this.add(centerPanel, BorderLayout.CENTER);
+
         /**ACTION LISTENER**/
         goButton.addActionListener(new ActionListener() {
             @Override
@@ -148,9 +216,6 @@ public class App extends JFrame {
 
         JPanel southPanel = new JPanel();
         southPanel.setLayout(new GridBagLayout());
-
-        JPanel centralPanel = new JPanel();
-        centralPanel.setLayout(new GridBagLayout());
 
 
         this.setVisible(true);
