@@ -1,3 +1,5 @@
+import fizzBuzz.FizzBuzz;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -256,20 +258,36 @@ public class App extends JFrame {
         DefaultListModel<Integer> buzzListModel = new DefaultListModel<>();
         DefaultListModel<Integer> noneListModel = new DefaultListModel<>();
 
-        for (int i = 1; i <= 100; i++) {
-            if (i % 3 == 0 && i % 5 == 0) {
-                fizzBuzzListModel.addElement(i);
+        try(ObjectInputStream ois = new ObjectInputStream(new FileInputStream("fizzBuzz.obj"))){
+            FizzBuzz fb = (FizzBuzz)ois.readObject();
+            ArrayList<Integer> auxFizzBuzz = fb.getFizzBuzzList();
+            for(int i = 0; i< auxFizzBuzz.size(); i++){
+                fizzBuzzListModel.addElement(auxFizzBuzz.get(i));
                 westFizzBuzzCounter++;
-            } else if (i % 3 == 0) {
-                fizzListModel.addElement(i);
+            }
+
+            ArrayList<Integer> auxFizz = fb.getFizzList();
+            for(int i = 0; i< auxFizz.size(); i++){
+                fizzListModel.addElement(auxFizz.get(i));
                 westFizzCounter++;
-            } else if (i % 5 == 0) {
-                buzzListModel.addElement(i);
+            }
+
+            ArrayList<Integer> auxBuzz = fb.getBuzzList();
+            for(int i = 0; i< auxBuzz.size(); i++){
+                buzzListModel.addElement(auxBuzz.get(i));
                 westBuzzCounter++;
-            } else {
-                noneListModel.addElement(i);
+            }
+
+            ArrayList<Integer> auxNone = fb.getNoneList();
+            for(int i = 0; i< auxNone.size(); i++){
+                noneListModel.addElement(auxNone.get(i));
                 westNoneCounter++;
             }
+
+        }catch (IOException e){
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
         }
 
         centerFizzBuzzList.setModel(fizzBuzzListModel);
