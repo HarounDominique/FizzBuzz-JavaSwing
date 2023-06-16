@@ -31,6 +31,8 @@ public class App extends JFrame {
     JLabel westFizzBuzzLabel;
     JLabel westNoneLabel;
 
+    JTextField numberField;
+
     public App() throws HeadlessException {
 
         JPanel northPanel = new JPanel();
@@ -41,10 +43,29 @@ public class App extends JFrame {
         /**NORTH PANEL**/
         this.add(northPanel, BorderLayout.NORTH);
 
-        JButton goButton = new JButton("GO!");
+        JLabel numberLabel = new JLabel("Introduce un número:");
         c.gridx = 0; //columna 0
         c.gridy = 0; //fila 0
-        c.gridwidth = 2; //dos columnas de ancho
+        c.gridwidth = 1; //dos columnas de ancho
+        c.gridheight = 1; //dos filas de alto
+        c.weightx = 1.0; // expandir en dirección x
+        c.weighty = 1.0; // expandir en dirección y
+        northPanel.add(numberLabel, c);
+
+        numberField = new JTextField();
+        numberField.setPreferredSize(new Dimension(50, numberField.getPreferredSize().height));
+        c.gridx = 0; //columna 0
+        c.gridy = 1; //fila 0
+        c.gridwidth = 1; //dos columnas de ancho
+        c.gridheight = 1; //dos filas de alto
+        c.weightx = 1.0; // expandir en dirección x
+        c.weighty = 1.0; // expandir en dirección y
+        northPanel.add(numberField, c);
+
+        JButton goButton = new JButton("GO!");
+        c.gridx = 1; //columna 1
+        c.gridy = 1; //fila 0
+        c.gridwidth = 1; //dos columnas de ancho
         c.gridheight = 2; //dos filas de alto
         c.weightx = 1.0; // expandir en dirección x
         c.weighty = 1.0; // expandir en dirección y
@@ -52,14 +73,14 @@ public class App extends JFrame {
         // Configuración de tamaño preferido
         Dimension buttonSize = new Dimension(100, 100); // Ancho y alto en píxeles
         goButton.setPreferredSize(buttonSize);
-        if(active){goButton.isEnabled();}
+        //if(active){goButton.isEnabled();}
 
         northPanel.add(goButton, c);
 
         JLabel titleLabel = new JLabel("FIZZBUZZ!");
         c.gridx = 2; //columna 2
         c.gridy = 0; //fila 0
-        c.gridwidth = 6; //dos columnas de ancho
+        c.gridwidth = 4; //dos columnas de ancho
         c.gridheight = 2; //dos filas de alto
         c.weightx = 1.0; // expandir en dirección x
         c.weighty = 1.0; // expandir en dirección y
@@ -237,7 +258,7 @@ public class App extends JFrame {
         goButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(active){
+                if (active) {
                     processNumbers();
                     active = false;
                 }
@@ -258,33 +279,41 @@ public class App extends JFrame {
         DefaultListModel<Integer> buzzListModel = new DefaultListModel<>();
         DefaultListModel<Integer> noneListModel = new DefaultListModel<>();
 
-        try(ObjectInputStream ois = new ObjectInputStream(new FileInputStream("fizzBuzz.obj"))){
-            FizzBuzz fb = (FizzBuzz)ois.readObject();
-            ArrayList<Integer> auxFizzBuzz = fb.getFizzBuzzList();
-            for(int i = 0; i< auxFizzBuzz.size(); i++){
-                fizzBuzzListModel.addElement(auxFizzBuzz.get(i));
-                westFizzBuzzCounter++;
+        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream("fizzBuzz.obj"))) {
+
+            FizzBuzz fb = (FizzBuzz) ois.readObject();
+
+            int auxNumber;
+            if (!numberField.getText().isEmpty()) {
+                auxNumber = Integer.parseInt(numberField.getText());
+                fb.setNumber(auxNumber);
+            } else {
+                ArrayList<Integer> auxFizzBuzz = fb.getFizzBuzzList();
+                for (int i = 0; i < auxFizzBuzz.size(); i++) {
+                    fizzBuzzListModel.addElement(auxFizzBuzz.get(i));
+                    westFizzBuzzCounter++;
+                }
+
+                ArrayList<Integer> auxFizz = fb.getFizzList();
+                for (int i = 0; i < auxFizz.size(); i++) {
+                    fizzListModel.addElement(auxFizz.get(i));
+                    westFizzCounter++;
+                }
+
+                ArrayList<Integer> auxBuzz = fb.getBuzzList();
+                for (int i = 0; i < auxBuzz.size(); i++) {
+                    buzzListModel.addElement(auxBuzz.get(i));
+                    westBuzzCounter++;
+                }
+
+                ArrayList<Integer> auxNone = fb.getNoneList();
+                for (int i = 0; i < auxNone.size(); i++) {
+                    noneListModel.addElement(auxNone.get(i));
+                    westNoneCounter++;
+                }
             }
 
-            ArrayList<Integer> auxFizz = fb.getFizzList();
-            for(int i = 0; i< auxFizz.size(); i++){
-                fizzListModel.addElement(auxFizz.get(i));
-                westFizzCounter++;
-            }
-
-            ArrayList<Integer> auxBuzz = fb.getBuzzList();
-            for(int i = 0; i< auxBuzz.size(); i++){
-                buzzListModel.addElement(auxBuzz.get(i));
-                westBuzzCounter++;
-            }
-
-            ArrayList<Integer> auxNone = fb.getNoneList();
-            for(int i = 0; i< auxNone.size(); i++){
-                noneListModel.addElement(auxNone.get(i));
-                westNoneCounter++;
-            }
-
-        }catch (IOException e){
+        } catch (IOException e) {
             e.printStackTrace();
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);

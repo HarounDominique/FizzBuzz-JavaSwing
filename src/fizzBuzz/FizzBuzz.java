@@ -7,13 +7,15 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 public class FizzBuzz implements Serializable {
+
+    int number = 1000;
     int counter = 0;
     ArrayList<Integer> fizzList = new ArrayList<>();
     ArrayList<Integer> buzzList = new ArrayList<>();
     ArrayList<Integer> fizzBuzzList = new ArrayList<>();
     ArrayList<Integer> noneList = new ArrayList<>();
     public FizzBuzz() {
-        for(int i = 0; i < 1000; i++){
+        for(int i = 0; i < number; i++){
             counter++;
             if(counter%3==0 && counter%5==0){
                 System.out.println("FizzBuzz");
@@ -29,6 +31,14 @@ public class FizzBuzz implements Serializable {
                 noneList.add(counter);
             }
         }
+    }
+
+    public int getNumber() {
+        return number;
+    }
+
+    public void setNumber(int number) {
+        this.number = number;
     }
 
     public int getCounter() {
