@@ -15,6 +15,9 @@ public class FizzBuzz implements Serializable {
     ArrayList<Integer> fizzBuzzList = new ArrayList<>();
     ArrayList<Integer> noneList = new ArrayList<>();
     public FizzBuzz() {
+    }
+
+    public void analyze(){
         for(int i = 0; i < number; i++){
             counter++;
             if(counter%3==0 && counter%5==0){

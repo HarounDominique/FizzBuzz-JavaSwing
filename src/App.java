@@ -261,6 +261,12 @@ public class App extends JFrame {
                 if (active) {
                     processNumbers();
                     active = false;
+                    goButton.setText("RESET");
+                    numberField.setEnabled(false);
+                }else{
+                    active = true;
+                    goButton.setText("GO!");
+                    numberField.setEnabled(true);
                 }
             }
         });
@@ -287,7 +293,32 @@ public class App extends JFrame {
             if (!numberField.getText().isEmpty()) {
                 auxNumber = Integer.parseInt(numberField.getText());
                 fb.setNumber(auxNumber);
+                fb.analyze();
+                ArrayList<Integer> auxFizzBuzz = fb.getFizzBuzzList();
+                for (int i = 0; i < auxFizzBuzz.size(); i++) {
+                    fizzBuzzListModel.addElement(auxFizzBuzz.get(i));
+                    westFizzBuzzCounter++;
+                }
+
+                ArrayList<Integer> auxFizz = fb.getFizzList();
+                for (int i = 0; i < auxFizz.size(); i++) {
+                    fizzListModel.addElement(auxFizz.get(i));
+                    westFizzCounter++;
+                }
+
+                ArrayList<Integer> auxBuzz = fb.getBuzzList();
+                for (int i = 0; i < auxBuzz.size(); i++) {
+                    buzzListModel.addElement(auxBuzz.get(i));
+                    westBuzzCounter++;
+                }
+
+                ArrayList<Integer> auxNone = fb.getNoneList();
+                for (int i = 0; i < auxNone.size(); i++) {
+                    noneListModel.addElement(auxNone.get(i));
+                    westNoneCounter++;
+                }
             } else {
+                fb.analyze();
                 ArrayList<Integer> auxFizzBuzz = fb.getFizzBuzzList();
                 for (int i = 0; i < auxFizzBuzz.size(); i++) {
                     fizzBuzzListModel.addElement(auxFizzBuzz.get(i));
