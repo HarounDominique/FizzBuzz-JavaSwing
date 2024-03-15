@@ -26,12 +26,6 @@ Esta es una versión más sofisticada de FizzBuzz implementada con JavaFX. El pr
 - Java Development Kit (JDK) instalado en tu sistema.
 - Biblioteca JavaFX en tu entorno de desarrollo.
 
-## Captura de pantalla
-
-Aquí hay una captura de pantalla de la interfaz de usuario:
-
-![Interfaz de usuario de FizzBuzz](screenshot.png)
-
 ## Contribuciones
 
 Las contribuciones son bienvenidas. Si encuentras algún error o deseas agregar mejoras a la aplicación, no dudes en enviar un pull request o abrir un issue en el repositorio.
