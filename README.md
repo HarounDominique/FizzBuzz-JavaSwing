@@ -32,4 +32,4 @@ Las contribuciones son bienvenidas. Si encuentras algún error o deseas agregar 
 
 ## Licencia
 
-Este proyecto está licenciado bajo la [Licencia MIT](LICENSE).
+Este proyecto está licenciado bajo la Licencia MIT.
