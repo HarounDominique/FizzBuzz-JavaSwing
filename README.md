@@ -1,4 +1,4 @@
-# FizzBuzz en Java con JavaFX
+# FizzBuzz con JavaFX
 
 Esta es una versión más sofisticada de FizzBuzz implementada con JavaFX. El programa permite al usuario introducir un número máximo (compatible con `long` de Java) y visualizar los resultados en una interfaz gráfica. Los números que cumplen ciertas condiciones se muestran en diferentes recuadros:
 
