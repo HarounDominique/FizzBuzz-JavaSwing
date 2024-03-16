@@ -18,8 +18,9 @@ Esta es una versión más sofisticada de FizzBuzz implementada con JavaFX. El pr
 1. Ejecuta la clase `FizzBuzz` para generar el archivo `fizzBuzz.obj` que contiene la lógica matemática necesaria. Esto se puede hacer ejecutando el método `main` de la clase `FizzBuzz`.
 2. Después de generar el archivo `fizzBuzz.obj`, ejecuta la aplicación.
 3. Introduce un número máximo (compatible con `long`) en el campo de entrada proporcionado.
-4. Haz clic en el botón "Calcular".
+4. Haz clic en el botón "GO!".
 5. Los resultados se mostrarán en los diferentes recuadros de la interfaz.
+6. Pulsar el botón "RESET" en caso de querer repetir el cálculo.
 
 ## Requisitos
 
